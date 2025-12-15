@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Myster_Say Chat</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f2f2;
+            padding: 20px;
+        }
+        .chat-box {
+            max-width: 400px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 15px;
+            border-radius: 6px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        #messages {
+            border: 1px solid #ccc;
+            height: 200px;
+            padding: 10px;
+            overflow-y: auto;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+        input[type="text"] {
+            width: 75%;
+            padding: 6px;
+        }
+        button {
+            width: 22%;
+            padding: 6px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div class="chat-box">
+    <h2>Myster_Say вітає вас</h2>
+
+    <div id="messages"></div>
+
+    <input type="text" id="messageInput" placeholder="Введіть повідомлення">
+    <button onclick="sendMessage()">Відправити</button>
+</div>
+
+<script>
+    function sendMessage() {
+        const input = document.getElementById('messageInput');
+        const messages = document.getElementById('messages');
+
+        if (input.value.trim() === '') return;
+
+        const msg = document.createElement('div');
+        msg.textContent = input.value;
+        messages.appendChild(msg);
+
+        input.value = '';
+        messages.scrollTop = messages.scrollHeight;
+    }
+</script>
+
+</body>
+</html>
